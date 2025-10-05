@@ -56,8 +56,7 @@
                         <td style="background-color:#ffffff; padding:24px;">
                             <h2 style="margin:0 0 10px; color:#000000; font-size:20px;">
                                 {{ $title ?? 'Exclusive Deals for You!' }}</h2>
-                            <p style="margin:0; font-size:15px; color:#555555;">Hi {{ $customer_name ?? 'Traveler' }},
-                            </p>
+                            <p style="margin:0; font-size:15px; color:#555555;">Dear {{ $name ?? 'Customer' }},</p>
                             <p style="margin-top:8px; font-size:15px; color:#555555;">
                                 We’ve handpicked some amazing experiences just for you. Explore our top picks below!
                             </p>
