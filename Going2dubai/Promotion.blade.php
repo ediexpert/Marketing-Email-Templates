@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Going2Dubai Deals</title>
+    <title>{{ $title ?? 'Exclusive Deals for You!' }}</title>
     <style>
-        /* Ensure responsive layout in email clients */
+        /* Responsive Design */
         @media only screen and (max-width: 600px) {
             .container {
                 width: 100% !important;
@@ -14,8 +14,8 @@
             }
 
             .product-card {
-                display: block !important;
                 width: 100% !important;
+                display: block !important;
             }
 
             .product-image {
@@ -24,13 +24,13 @@
         }
 
         a {
-            text-decoration: none;
+            text-decoration: none !important;
         }
     </style>
 </head>
 
 <body
-    style="margin:0; padding:0; background-color:#f8f8f8; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+    style="margin:0; padding:0; background-color:#f8f8f8; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
 
     <!-- Wrapper -->
     <table role="presentation" cellpadding="0" cellspacing="0" width="100%"
@@ -42,10 +42,11 @@
 
                     <!-- Header -->
                     <tr>
-                        <td align="center" style="padding:20px 0; background-color:#000000; color:#ffffff;">
-                            <img src="https://going2dubai.com/wp-content/uploads/2024/07/cropped-g2d-logo-white.png"
-                                width="120" alt="Going2Dubai" style="display:block; margin-bottom:8px;">
-                            <p style="margin:0; font-size:14px; letter-spacing:0.5px;">Your Gateway to Unforgettable
+                        <td align="center"
+                            style="padding:20px 0; background-color:#ffffff; border-bottom:3px solid #FF1616;">
+                            <img src="https://imagedelivery.net/qsixnSU_OZcGhNkQaa8lTA/0ec39f89-1cb4-4cdc-6858-622000896400/w=150,sharpen=1"
+                                width="140" alt="Going2Dubai" style="display:block; margin-bottom:8px;">
+                            <p style="margin:0; font-size:14px; color:#555555;">Your Gateway to Unforgettable
                                 Experiences</p>
                         </td>
                     </tr>
@@ -57,8 +58,9 @@
                                 {{ $title ?? 'Exclusive Deals for You!' }}</h2>
                             <p style="margin:0; font-size:15px; color:#555555;">Hi {{ $customer_name ?? 'Traveler' }},
                             </p>
-                            <p style="margin-top:8px; font-size:15px; color:#555555;">We’ve handpicked some amazing
-                                experiences just for you. Explore our top picks below!</p>
+                            <p style="margin-top:8px; font-size:15px; color:#555555;">
+                                We’ve handpicked some amazing experiences just for you. Explore our top picks below!
+                            </p>
                         </td>
                     </tr>
 
@@ -72,7 +74,7 @@
                                         class="product-card"
                                         style="border:1px solid #e5e5e5; border-radius:8px; overflow:hidden; margin-top:16px;">
                                         <tr>
-                                            <td style="width:100%;">
+                                            <td>
                                                 <img src="{{ $product['image_url'] }}" alt="{{ $product['name'] }}"
                                                     style="width:100%; height:220px; object-fit:cover; display:block;"
                                                     class="product-image">
@@ -86,8 +88,7 @@
                                                     from {{ $product['price'] }}</p>
                                                 <table role="presentation" cellpadding="0" cellspacing="0">
                                                     <tr>
-                                                        <td align="center" bgcolor="#FF1616"
-                                                            style="border-radius:6px; text-align:center;">
+                                                        <td align="center" bgcolor="#FF1616" style="border-radius:6px;">
                                                             <a href="{{ $product['link'] }}" target="_blank"
                                                                 style="display:inline-block; padding:10px 20px; font-size:14px; color:#ffffff; background-color:#FF1616; border-radius:6px;">
                                                                 Book Now
@@ -106,8 +107,8 @@
                     <!-- Footer -->
                     <tr>
                         <td align="center"
-                            style="background-color:#000000; color:#ffffff; padding:16px; font-size:13px;">
-                            © {{ date('Y') }} Going2Dubai. All rights reserved.
+                            style="background-color:#f2f2f2; color:#555555; padding:16px; font-size:13px;">
+                            © {{ date('Y') }} <b>Going2Dubai</b>. All rights reserved.
                         </td>
                     </tr>
 
