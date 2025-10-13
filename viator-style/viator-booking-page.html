@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en" class="antialiased">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tourify – Sample Preview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: 'var(--color-primary)',
+              accent: 'var(--color-accent)',
+              surface: 'var(--color-surface)',
+              'surface-2': 'var(--color-surface-2)',
+            },
+            boxShadow: {
+              soft: '0 6px 18px rgba(10,15,25,0.06)'
+            },
+            borderRadius: {
+              lg: '0.75rem'
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      :root{
+        --color-primary:#00a8a8;
+        --color-accent:#ffb400;
+        --color-surface:#ffffff;
+        --color-surface-2:#f8fafc;
+      }
+      .dark{
+        --color-primary:#2dd4bf;
+        --color-accent:#f59e0b;
+        --color-surface:#0b1220;
+        --color-surface-2:#071021;
+      }
+      .container-compact{max-width:1100px;margin:auto;padding:0 1rem;}
+      .header-height{height:64px;}
+      @media(min-width:768px){.header-height{height:72px;}}
+    </style>
+  </head>
+  <body class="text-sm bg-surface text-gray-900 dark:bg-surface dark:text-gray-100 transition-colors duration-300">
+    <!-- Header -->
+    <header class="w-full bg-surface-2 border-b border-gray-200 dark:border-gray-800">
+      <div class="header-height container-compact flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <a href="#" class="flex items-center gap-2 font-semibold text-lg">
+            <img src="https://bookingmaze.com/wp-content/uploads/2024/07/cropped-Complete-logo-with-white-outline-2.png" alt="Logo" class="h-8 w-auto rounded">
+            <span class="hidden md:block">Tourify</span>
+          </a>
+          <form class="hidden sm:flex items-center bg-surface rounded-md shadow-sm overflow-hidden">
+            <input type="search" placeholder="Search tours, destinations..." class="px-3 py-2 w-56 bg-transparent outline-none text-sm">
+            <button class="px-3 py-2 bg-primary text-white text-sm font-medium">Search</button>
+          </form>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="hidden sm:flex items-center gap-2">
+            <a href="#" class="text-sm">Become a supplier</a>
+            <a href="#" class="text-sm">Help</a>
+          </div>
+          <button onclick="toggleTheme()" class="p-2 rounded-md hover:bg-surface-2" aria-label="Toggle theme">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <a href="#" class="hidden sm:inline-flex items-center px-3 py-2 rounded-md bg-primary text-white text-sm font-medium">Sign in</a>
+          <button class="sm:hidden p-2" onclick="toggleMobileNav()" aria-label="Open menu">
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+      <div id="mobileNav" class="sm:hidden bg-surface-2 border-t border-gray-200 dark:border-gray-800 hidden">
+        <div class="p-3 space-y-2">
+          <form class="flex">
+            <input type="search" placeholder="Search..." class="flex-1 px-3 py-2 rounded-l-md bg-transparent outline-none">
+            <button class="px-3 py-2 rounded-r-md bg-primary text-white">Go</button>
+          </form>
+          <a href="#" class="block py-2">Become a supplier</a>
+          <a href="#" class="block py-2">Help</a>
+          <a href="#" class="block py-2 bg-primary text-white rounded-md text-center">Sign in</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Body -->
+    <main class="min-h-[60vh] container-compact py-6 space-y-6">
+      <h1 class="text-xl font-semibold">Featured Tours</h1>
+      <!-- Booking Form Section -->
+<section class="bg-white dark:bg-gray-900 rounded-2xl shadow p-6 max-w-md mx-auto mt-8">
+  <h2 class="text-xl font-semibold text-gray-800 dark:text-white mb-4">Book This Tour</h2>
+
+  <form class="space-y-4">
+    <!-- Date -->
+    <div>
+      <label for="date" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+        Select Date
+      </label>
+      <input type="date" id="date" name="date"
+        class="w-full rounded-lg border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)]">
+    </div>
+
+    <!-- Time -->
+    <div>
+      <label for="time" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+        Select Time
+      </label>
+      <input type="time" id="time" name="time"
+        class="w-full rounded-lg border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)]">
+    </div>
+
+    <!-- Quantity -->
+    <div class="grid grid-cols-3 gap-3">
+      <!-- Adults -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Adults</label>
+        <div class="flex items-center justify-between bg-gray-50 dark:bg-gray-800 rounded-lg border dark:border-gray-700">
+          <button type="button" class="px-3 py-2 text-gray-600 dark:text-gray-300" onclick="updateQty('adults', -1)">−</button>
+          <input type="number" id="adults" name="adults" min="0" value="1"
+            class="w-10 text-center bg-transparent border-none focus:ring-0 dark:text-white">
+          <button type="button" class="px-3 py-2 text-gray-600 dark:text-gray-300" onclick="updateQty('adults', 1)">+</button>
+        </div>
+      </div>
+
+      <!-- Children -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Children</label>
+        <div class="flex items-center justify-between bg-gray-50 dark:bg-gray-800 rounded-lg border dark:border-gray-700">
+          <button type="button" class="px-3 py-2 text-gray-600 dark:text-gray-300" onclick="updateQty('children', -1)">−</button>
+          <input type="number" id="children" name="children" min="0" value="0"
+            class="w-10 text-center bg-transparent border-none focus:ring-0 dark:text-white">
+          <button type="button" class="px-3 py-2 text-gray-600 dark:text-gray-300" onclick="updateQty('children', 1)">+</button>
+        </div>
+      </div>
+
+      <!-- Infants -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Infants</label>
+        <div class="flex items-center justify-between bg-gray-50 dark:bg-gray-800 rounded-lg border dark:border-gray-700">
+          <button type="button" class="px-3 py-2 text-gray-600 dark:text-gray-300" onclick="updateQty('infants', -1)">−</button>
+          <input type="number" id="infants" name="infants" min="0" value="0"
+            class="w-10 text-center bg-transparent border-none focus:ring-0 dark:text-white">
+          <button type="button" class="px-3 py-2 text-gray-600 dark:text-gray-300" onclick="updateQty('infants', 1)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit"
+      class="w-full py-3 bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white rounded-xl font-medium transition">
+      Check Availability
+    </button>
+  </form>
+</section>
+
+
+	  </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-200 dark:border-gray-800 bg-surface-2">
+      <div class="container-compact py-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div>
+          <a href="#" class="flex items-center gap-2 font-semibold">
+            <img src="https://bookingmaze.com/wp-content/uploads/2024/07/cropped-Complete-logo-with-white-outline-2.png" class="h-8 w-auto rounded">
+            <span>Tourify</span>
+          </a>
+          <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Compact, professional tours & experiences marketplace theme.</p>
+        </div>
+        <div class="text-sm">
+          <h4 class="font-medium">Explore</h4>
+          <ul class="mt-2 space-y-1">
+            <li><a href="#">Destinations</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">Deals</a></li>
+          </ul>
+        </div>
+        <div class="text-sm">
+          <h4 class="font-medium">Support</h4>
+          <ul class="mt-2 space-y-1">
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-100 dark:border-gray-900 py-3">
+        <div class="container-compact text-xs text-gray-500 dark:text-gray-400 flex items-center justify-between">
+          <div>© 2025 Tourify. All rights reserved.</div>
+          <div class="flex items-center gap-3">
+            <a href="#">Privacy</a>
+            <a href="#">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function toggleTheme(){
+        document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+      }
+      function toggleMobileNav(){
+        document.getElementById('mobileNav').classList.toggle('hidden');
+      }
+      // restore saved theme
+      if(localStorage.getItem('theme')==='dark') document.documentElement.classList.add('dark');
+    </script>
+	
+	<!-- JS for Quantity Buttons -->
+<script>
+  function updateQty(id, change) {
+    const input = document.getElementById(id);
+    let newValue = parseInt(input.value || 0) + change;
+    if (newValue < 0) newValue = 0;
+    input.value = newValue;
+  }
+</script>
+
+<!-- Example color configuration -->
+<style>
+  :root {
+    --color-primary: #00a8a8;
+    --color-primary-hover: #008080;
+  }
+</style>
+
+  </body>
+</html>
